@@ -1,0 +1,21 @@
+# Vulcan Documentation
+
+This repository contains Vulcan documentation in markdown format.
+
+The documentation site is generated using [MkDocs](https://www.mkdocs.org/) and [diagrams](https://diagrams.mingrammer.com/).
+
+## Generating Diagrams
+
+```bash
+pip3 -r requirements.txt
+python3 diagrams/simplified-architecture.py
+# The image will be created in "docs/img/simplified-architecture.png".
+```
+
+## Viewing Documentation
+
+```bash
+pip3 -r requirements.txt
+mkdocs serve
+# The site will be served in "http://127.0.0.1:8000/".
+```
