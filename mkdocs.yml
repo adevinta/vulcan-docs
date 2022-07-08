@@ -6,6 +6,10 @@ nav:
     - Asset Auto-Discovery: asset-auto-discovery.md
     - Security Checks in CI/CD: security-checks-in-ci-cd.md
     - Security Metrics: security-metrics.md
+  - Basic Documentation:
+    - Vulcan API: vulcan-api.md
+    - Developing Checks: developing-checks.md
+    - Vulnerability Severity: vulnerability-severity.md
   - Architecture: architecture.md
   - Repositories: repositories.md
 theme:
@@ -14,13 +18,14 @@ theme:
   favicon: img/logo.png
   features:
     - navigation.tracking
-    - navigation.sections
+    - navigation.expand
 extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/adevinta/vulcan-docs
 markdown_extensions:
     - attr_list
+    - md_in_html
     - toc:
         permalink: true
     - pymdownx.highlight:
@@ -28,3 +33,6 @@ markdown_extensions:
     - pymdownx.inlinehilite
     - pymdownx.snippets
     - pymdownx.superfences
+plugins:
+    - render_swagger
+    - search

@@ -4,5 +4,12 @@ Through its various interfaces, Vulcan can be connected to any external process 
 
 ## Example
 
-[![Auto-Discovered Assets](img/screenshots/auto-discovered-assets.png)](img/screenshots/auto-discovered-assets.png)
-[![Auto-Discovery Metadata](img/screenshots/auto-discovery-metadata.png)](img/screenshots/auto-discovery-metadata.png)
+<figure markdown>
+  [![Auto-Discovered Assets](img/screenshots/auto-discovered-assets.png)](img/screenshots/auto-discovered-assets.png)
+  <figcaption>Assets that have been auto-discovered in the Vulcan web interface.</figcaption>
+</figure>
+
+<figure markdown>
+  [![Auto-Discovery Metadata](img/screenshots/auto-discovery-metadata.png)](img/screenshots/auto-discovery-metadata.png)
+  <figcaption>Auto-discovery metadata for an asset in the Vulcan web interface.</figcaption>
+</figure>

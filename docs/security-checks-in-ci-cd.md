@@ -6,8 +6,8 @@ By using [Vulcan Local](https://github.com/adevinta/vulcan-local/), engineers ar
 
 This YAML file can be added into any repository to instruct Vulcan Local on how to scan it.
 
-```yaml
-# Policy to use, can be any URL
+```yaml title="vulcan.yaml"
+# Policy to use, can be an HTTP URL
 conf:
   repositories:
     - file://./script/checktypes-stable.json
@@ -28,7 +28,7 @@ checks:
 
 Note that the `repositories` attribute allows developers to refer to an external security policy that will be used to decide which [checks to run and which configuration to use](https://github.com/adevinta/vulcan-local/blob/master/script/checktypes-stable.json) for any of the targets provided, besides the checks specified in the YAML file itself. This allows developers to fall back to a default policy defined by the organization.
 
-With this file, invoking Vulcan Local in any worker is as simple as:
+With this file, invoking Vulcan Local in any build worker is as simple as:
 
 ```bash
 # Install Vulcan Local
