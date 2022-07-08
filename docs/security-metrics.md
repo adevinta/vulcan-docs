@@ -29,7 +29,7 @@ curl -H "Authorization: Bearer $VULCAN_API_TOKEN" \
 
 {
   "current_exposure": {
-    "mean": 0.11209448947762005,
+    "mean": 41.209448947762005,
     "percentile_10": 36.78803730882772,
     "percentile_25": 50.75172645112574,
     "percentile_50": 54.29089680729741,
