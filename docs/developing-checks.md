@@ -87,7 +87,7 @@ The `manifest.toml` file contains the metadata of the check.
 ```toml title="manifest.toml"
 # The visible description of the check.
 Description = "Checks if an asset is vulnerable to an example vulnerability."
-# The asset types that the check will be used with by default.
+# The asset types that the check will be used for by default.
 AssetTypes = ["Hostname", "IP"]
 ```
 

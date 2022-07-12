@@ -8,17 +8,20 @@ nav:
     - Security Metrics: security-metrics.md
   - Basic Documentation:
     - Vulcan API: vulcan-api.md
-    - Developing Checks: developing-checks.md
+    - Vulnerability Management: vulnerability-management.md
     - Vulnerability Severity: vulnerability-severity.md
+    - Developing Checks: developing-checks.md
   - Architecture: architecture.md
   - Repositories: repositories.md
+  - Changelog: changelog.md
 theme:
   name: material
   logo: img/logo.svg
   favicon: img/logo.png
   features:
+    - navigation.sections
     - navigation.tracking
-    - navigation.expand
+    - content.code.annotate
 extra:
   social:
     - icon: fontawesome/brands/github
