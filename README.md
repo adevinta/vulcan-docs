@@ -15,6 +15,8 @@ The documentation site is generated using [MkDocs](https://www.mkdocs.org/) and 
 pip3 install -r requirements.txt
 python3 diagrams/simplified-architecture.py
 # The image will be created in "docs/img/simplified-architecture.png".
+python3 diagrams/detailed-architecture.py
+# The image will be created in "docs/img/detailed-architecture.png".
 ```
 
 ## Viewing Documentation

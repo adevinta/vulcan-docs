@@ -10,8 +10,9 @@ from diagrams.onprem.container import Docker
 from diagrams.onprem.inmemory import Redis
 
 with Diagram("Detailed Vulcan Architecture", outformat="png", filename="docs/img/detailed-architecture", show=False):
-        user = User("user")
-        vulcan_ui = Pod("vulcan-ui")
+        with Cluster("Clients"):
+                user = User("user")
+                vulcan_ui = Pod("vulcan-ui")
 
         with Cluster("Vulcan Service"):
                 with Cluster("Vulcan API"):
@@ -65,7 +66,7 @@ with Diagram("Detailed Vulcan Architecture", outformat="png", filename="docs/img
                 with Cluster("Vulcan Agent Cluster"):
                         vulcan_agents = AutoScaling("vulcan-agents")
                         vulcan_agents >> scan_engine_queue
-                        with Cluster("Vulcan Checks"):
+                        with Cluster("Vulcan Check Cluster"):
                                 vulcan_checks = Docker("vulcan-checks")
 
         with Cluster("Result Forwarding"):
