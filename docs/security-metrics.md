@@ -87,12 +87,12 @@ curl -H "Authorization: Bearer $VULCAN_API_TOKEN" \
 
 {
   "mttr": {
-    "critical": 32.91856414183523,
-    "high": 82.43581388518908,
-    "medium": 140.39820739887437,
-    "low": 265.17825863008089,
-    "informational": 360.2830379559806,
-    "total": 103.571544865095874
+    "critical": 44.91856414183523,
+    "high": 86.43581388518908,
+    "medium": 139.39820739887437,
+    "low": 267.17825863008089,
+    "informational": 362.2830379559806,
+    "total": 106.571544865095874
   }
 }
 ```
@@ -105,12 +105,12 @@ curl -H "Authorization: Bearer $VULCAN_API_TOKEN" \
 "www.vulcan.example.com/api/v1/stats/fixed?minDate=2021-09-01&maxDate=2021-12-01"
 
 {
-  "open_issues": {
-    "critical": 2,
-    "high": 4,
-    "medium": 9,
-    "low": 11,
-    "informational": 21
+  "fixed_issues": {
+    "critical": 19,
+    "high": 43,
+    "medium": 91,
+    "low": 265,
+    "informational": 141
   }
 }
 ```
