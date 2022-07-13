@@ -4,6 +4,11 @@ This repository contains Vulcan documentation in markdown format.
 
 The documentation site is generated using [MkDocs](https://www.mkdocs.org/) and [diagrams](https://diagrams.mingrammer.com/).
 
+## Requirements
+
+- Python3
+- [Graphviz](https://graphviz.gitlab.io/download/)
+
 ## Generating Diagrams
 
 ```bash

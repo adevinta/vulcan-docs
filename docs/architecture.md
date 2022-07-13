@@ -24,3 +24,9 @@ Notably absent from this diagram are the following elements:
 - Specific runtimes (e.g. AWS, Kubernetes, GCP...) that the components can run inside of.
 
 For a detailed list of all the components involved in Vulcan, see the [repositories](/repositories/) page.
+
+## Detailed Architecture
+
+This diagram shows a more detailed architecture of Vulcan deployed in Kubernetes.
+
+[![Vulcan Detailed Architecture](img/detailed-architecture.png)](img/detailed-architecture.png)
