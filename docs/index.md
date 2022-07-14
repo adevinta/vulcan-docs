@@ -12,7 +12,7 @@ Allow teams to be independent in managing the security of their assets while red
 - Adapt any security tool (commercial, open source, custom...) to run on a large scale.
 - Scan assets like servers, networks, Docker images, Git repositories, AWS accounts and more.
 - Completely automated periodic scanning and reporting workflow for continuous scanning.
-- Tooling to easily integrate many of the available security checks in the CI/CD process.
+- Tooling to easily integrate most of the available security checks in the CI/CD process.
 - Team tenancy to allow users to directly manage their security without intermediaries.
 - Useful metrics such as critical assets, median exposure or mean time to remediate.
 - Endless integration possibilities using the many available interfaces: UI, API, CLI, queues...

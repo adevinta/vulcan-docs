@@ -27,6 +27,6 @@ For a detailed list of all the components involved in Vulcan, see the [repositor
 
 ## Detailed Architecture
 
-This diagram shows a more detailed architecture of Vulcan deployed in Kubernetes.
+This diagram shows a detailed architecture of Vulcan working in Kubernetes and AWS.
 
 [![Vulcan Detailed Architecture](img/detailed-architecture.png)](img/detailed-architecture.png)

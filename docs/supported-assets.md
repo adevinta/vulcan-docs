@@ -2,7 +2,7 @@
 
 By default, Vulcan is able to manage and scan the following asset types.
 
-| Asset Type    | Example Identifier                                | Use Cases                           |
+| Asset Type    | Example Identifier                                | Example Checks                      |
 |---------------|---------------------------------------------------|-------------------------------------|
 | IP            |                                         127.0.0.1 | Exposed and vulnerable services.    |
 | IPRange       |                                       10.0.0.0/16 | Exposed and vulnerable services.    |
