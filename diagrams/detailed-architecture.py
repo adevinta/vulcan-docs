@@ -105,3 +105,4 @@ with Diagram("Detailed Vulcan Architecture", outformat="png", filename="docs/img
         vulcan_agents >> vulcan_results
         vulcan_agents >> vulcan_stream
         vulcan_agents >> vulcan_checks
+        vulcan_checks >> vulcan_agents
