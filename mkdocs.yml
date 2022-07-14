@@ -8,6 +8,8 @@ nav:
     - Security Metrics: security-metrics.md
   - Basic Documentation:
     - Vulcan API: vulcan-api.md
+    - Vulcan Local: vulcan-local.md
+    - Supported Assets: supported-assets.md
     - Vulnerability Management: vulnerability-management.md
     - Vulnerability Severity: vulnerability-severity.md
     - Developing Checks: developing-checks.md
