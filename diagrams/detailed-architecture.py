@@ -21,8 +21,8 @@ with Diagram("Detailed Vulcan Architecture", outformat="png", filename="docs/img
                         vulcan_api >> vulcan_api_db
 
                 with Cluster("Vulnerability DB"):
-                        vulndb_consumer = EC2("vulndb-consumer")
-                        vulndb_api = EC2("vulndb-api")
+                        vulndb_consumer = Pod("vulndb-consumer")
+                        vulndb_api = Pod("vulndb-api")
                         vulndb_db = RDS("vulndb-db")
                         vulndb_consumer >> vulndb_db
                         vulndb_api >> vulndb_db
