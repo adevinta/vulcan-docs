@@ -8,13 +8,12 @@ from diagrams.aws.integration import SQS, SNS
 from diagrams.onprem.container import Docker
 
 with Diagram("Simplified Vulcan Architecture", outformat="png", filename="docs/img/simplified-architecture", show=False):
-        with Cluster("Checks"):
-                checks = [ Docker("check-1"), Docker("check-2"), Docker("check-N") ]
-
         result_queue = SQS("result-queue")
 
         with Cluster("Agents"):
                 agents = [ EC2("agent-1"), EC2("agent-2"), EC2("agent-N") ]
+                with Cluster("Checks"):
+                        checks = [ Docker("check-1"), Docker("check-2"), Docker("check-N") ]
                 agents[0] >> checks
 
         with Cluster("Vulnerability DB"):
