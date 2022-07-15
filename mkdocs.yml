@@ -1,4 +1,7 @@
+# Copyright 2022 Adevinta
+
 site_name: Vulcan
+copyright: Copyright &copy; 2022 Adevinta
 nav:
   - Home: index.md
   - Use Cases:

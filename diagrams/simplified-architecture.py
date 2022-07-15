@@ -1,3 +1,5 @@
+# Copyright 2022 Adevinta
+
 from diagrams import Cluster, Diagram
 from diagrams.aws.general import User
 from diagrams.aws.compute import EC2

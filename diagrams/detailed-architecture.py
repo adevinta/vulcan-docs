@@ -1,3 +1,5 @@
+# Copyright 2022 Adevinta
+
 from diagrams import Cluster, Diagram, Edge
 from diagrams.k8s.compute import Pod
 from diagrams.onprem.client import User, Client
