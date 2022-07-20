@@ -14,10 +14,10 @@ nav:
     - Supported Assets: supported-assets.md
     - Vulnerability Management: vulnerability-management.md
     - Vulnerability Severity: vulnerability-severity.md
-    - Data Models: data-models.md
     - Developing Checks: developing-checks.md
   - Technical Details:
     - Architecture: architecture.md
+    - Data Models: data-models.md
     - Repositories: repositories.md
     - Changelog: changelog.md
 theme:
@@ -33,6 +33,7 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/adevinta/vulcan-docs
 markdown_extensions:
+    - meta
     - attr_list
     - md_in_html
     - toc:

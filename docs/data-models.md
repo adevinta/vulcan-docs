@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Data Models
 
 ## Vulnerability DB
