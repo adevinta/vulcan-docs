@@ -105,14 +105,31 @@ erDiagram
         time updated_at
         text tag
     }
-    groups {
-        uuid id "PK"
-        uuid team_id "FK"
-        text name
-        text options
+    user_team {
+        uuid user_id "PK, FK"
+        uuid team_id "PK, FK"
+        text role
         time created_at
         time updated_at
-        text description
+    }
+    users {
+        uuid id "PK"
+        text firstname
+        text lastname
+        text email
+        text api_token
+        bool active
+        bool admin
+        time created_at
+        time updated_at
+        time last_login
+        bool observer
+    }
+    recipients {
+        uuid team_id "PK, FK"
+        text email "PK"
+        time created_at
+        time updated_at
     }
     assets {
         uuid id "PK"
@@ -128,18 +145,41 @@ erDiagram
         time created_at
         text alias
     }
-    users {
+    asset_types {
         uuid id "PK"
-        text firstname
-        text lastname
-        text email
-        text api_token
-        bool active
-        bool admin
+        text name
+    }
+    asset_group {
+        uuid asset_id "PK, FK"
+        uuid group_id "PK, FK"
         time created_at
         time updated_at
-        time last_login
-        bool observer
+    }
+    groups {
+        uuid id "PK"
+        uuid team_id "FK"
+        text name
+        text options
+        time created_at
+        time updated_at
+        text description
+    }
+    policies {
+        uuid id "PK"
+        uuid team_id "FK"
+        text name
+        bool global
+        time created_at
+        time updated_at
+        text description
+    }
+    checktype_settings {
+        uuid id "PK"
+        uuid policy_id "FK"
+        text check_type_name
+        text options
+        time created_at
+        time updated_at
     }
     programs {
         uuid id "PK"
@@ -151,45 +191,10 @@ erDiagram
         uuid team_id "FK"
         bool disabled
     }
-    policies {
-        uuid id "PK"
-        uuid team_id "FK"
-        text name
-        bool global
-        time created_at
-        time updated_at
-        text description
-    }
-    recipients {
-        uuid team_id "PK, FK"
-        text email "PK"
-        time created_at
-        time updated_at
-    }
-    user_team {
-        uuid user_id "PK, FK"
-        uuid team_id "PK, FK"
-        text role
-        time created_at
-        time updated_at
-    }
-    asset_types {
-        uuid id "PK"
-        text name
-    }
-    asset_group {
-        uuid asset_id "PK, FK"
+    programs_groups_policies {
+        uuid program_id "PK, FK"
+        uuid policy_id "PK, FK"
         uuid group_id "PK, FK"
-        time created_at
-        time updated_at
-    }
-    checktype_settings {
-        uuid id "PK"
-        uuid policy_id "FK"
-        text check_type_name
-        text options
-        time created_at
-        time updated_at
     }
     global_programs_metadata {
         uuid team_id "PK, FK"
@@ -200,20 +205,25 @@ erDiagram
         text cron
         bool disabled
     }
-    programs_groups_policies {
-        uuid program_id "PK, FK"
-        uuid policy_id "PK, FK"
-        uuid group_id "PK, FK"
-    }
-    outbox {
-        uuid id "PK"
-        text operation
-        int version
-        jsonb data
-        int retries
-        time created_at
-        time updated_at
-    }
+    teams ||--o{ user_team : ""
+    teams ||--o{ policies : ""
+    teams ||--o{ programs : ""
+    teams ||--o{ groups : ""
+    teams ||--o{ recipients : ""
+    teams ||--o{ assets : ""
+    teams ||--o{ global_programs_metadata : ""
+    users ||--o{ user_team : ""
+    assets ||--o{ asset_group : ""
+    assets ||--|| asset_types : ""
+    policies ||--o{ checktype_settings : ""
+    policies ||--o{ programs_groups_policies : ""
+    programs ||--o{ programs_groups_policies : ""
+    groups ||--o{ programs_groups_policies : ""
+    groups ||--o{ asset_group : ""
+```
+
+```mermaid
+erDiagram
     audit {
         int id
         time date
@@ -224,19 +234,13 @@ erDiagram
         jsonb new_val
         jsonb old_val
     }
-    teams ||--o{ user_team : ""
-    teams ||--o{ programs : ""
-    teams ||--o{ policies : ""
-    teams ||--o{ groups : ""
-    teams ||--o{ recipients : ""
-    teams ||--o{ assets : ""
-    teams ||--o{ global_programs_metadata : ""
-    users ||--o{ user_team : ""
-    assets ||--|| asset_types : ""
-    assets ||--o{ asset_group : ""
-    policies ||--o{ checktype_settings : ""
-    policies ||--o{ programs_groups_policies : ""
-    groups ||--o{ asset_group : ""
-    programs ||--o{ programs_groups_policies : ""
-    groups ||--o{ programs_groups_policies : ""
+    outbox {
+        uuid id "PK"
+        text operation
+        int version
+        jsonb data
+        int retries
+        time created_at
+        time updated_at
+    }
 ```
