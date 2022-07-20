@@ -232,7 +232,7 @@ erDiagram
     users ||--o{ user_team : ""
     assets ||--o{ asset_group : ""
     assets ||--o{ asset_annotations : ""
-    assets ||--|| asset_types : ""
+    assets }o--|| asset_types : ""
     policies ||--o{ checktype_settings : ""
     policies ||--o{ programs_groups_policies : ""
     programs ||--o{ programs_groups_policies : ""
