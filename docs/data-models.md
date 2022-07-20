@@ -32,7 +32,7 @@ erDiagram
       text id "PK"
       text finding_id "FK"
       text source_id "FK"
-      date time
+      time time
       float score
       text details
       jsonb resources
@@ -40,10 +40,10 @@ erDiagram
     }
     finding_exposures {
       text finding_id "PK, FK"
-      date found_at "PK"
-      date fixed_at
+      time found_at "PK"
+      time fixed_at
       int ttr
-      date expired_at
+      time expired_at
     }
     sources {
       text id "PK"
@@ -51,7 +51,7 @@ erDiagram
       text component
       text instance
       text options
-      date time
+      time time
       text target_id "FK"
     }
     source_issues {
@@ -86,4 +86,152 @@ erDiagram
     findings ||--o{ finding_events : ""
     findings ||--o{ finding_exposures : ""
     findings ||--|| last_sources : ""
+```
+
+## Vulcan API
+
+```mermaid
+erDiagram
+    teams {
+        uuid id "PK"
+        text name
+        text description
+        time created_at
+        time updated_at
+        text tag
+    }
+    groups {
+        uuid id "PK"
+        uuid team_id "FK"
+        text name
+        text options
+        time created_at
+        time updated_at
+        text description
+    }
+    assets {
+        uuid id "PK"
+        uuid team_id "FK"
+        uuid asset_type_id "FK"
+        text identifier
+        text options
+        text environmental_cvss
+        bool scannable
+        time created_at
+        time updated_at
+        text rolfp
+        time created_at
+        text alias
+    }
+    users {
+        uuid id "PK"
+        text firstname
+        text lastname
+        text email
+        text api_token
+        bool active
+        bool admin
+        time created_at
+        time updated_at
+        time last_login
+        bool observer
+    }
+    programs {
+        uuid id "PK"
+        text name
+        text cron
+        time created_at
+        time updated_at
+        bool autosend
+        uuid team_id "FK"
+        bool disabled
+    }
+    policies {
+        uuid id "PK"
+        uuid team_id "FK"
+        text name
+        bool global
+        time created_at
+        time updated_at
+        text description
+    }
+    recipients {
+        uuid team_id "PK, FK"
+        text email "PK"
+        time created_at
+        time updated_at
+    }
+    user_team {
+        uuid user_id "PK, FK"
+        uuid team_id "PK, FK"
+        text role
+        time created_at
+        time updated_at
+    }
+    asset_types {
+        uuid id "PK"
+        text name
+    }
+    asset_group {
+        uuid asset_id "PK, FK"
+        uuid group_id "PK, FK"
+        time created_at
+        time updated_at
+    }
+    checktype_settings {
+        uuid id "PK"
+        uuid policy_id "FK"
+        text check_type_name
+        text options
+        time created_at
+        time updated_at
+    }
+    global_programs_metadata {
+        uuid team_id "PK, FK"
+        text program "PK"
+        bool autosend
+        time created_at
+        time updated_at
+        text cron
+        bool disabled
+    }
+    programs_groups_policies {
+        uuid program_id "PK, FK"
+        uuid policy_id "PK, FK"
+        uuid group_id "PK, FK"
+    }
+    outbox {
+        uuid id "PK"
+        text operation
+        int version
+        jsonb data
+        int retries
+        time created_at
+        time updated_at
+    }
+    audit {
+        int id
+        time date
+        text schema
+        text tablename
+        text operation
+        text who
+        jsonb new_val
+        jsonb old_val
+    }
+    teams ||--o{ user_team : ""
+    teams ||--o{ programs : ""
+    teams ||--o{ policies : ""
+    teams ||--o{ groups : ""
+    teams ||--o{ recipients : ""
+    teams ||--o{ assets : ""
+    teams ||--o{ global_programs_metadata : ""
+    users ||--o{ user_team : ""
+    assets ||--|| asset_types : ""
+    assets ||--o{ asset_group : ""
+    policies ||--o{ checktype_settings : ""
+    policies ||--o{ programs_groups_policies : ""
+    groups ||--o{ asset_group : ""
+    programs ||--o{ programs_groups_policies : ""
+    groups ||--o{ programs_groups_policies : ""
 ```
