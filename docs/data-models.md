@@ -145,6 +145,13 @@ erDiagram
         time created_at
         text alias
     }
+    asset_annotations {
+        uuid asset_id "PK, FK"
+        text key "PK"
+        text value
+        time created_at
+        time updated_at
+    }
     asset_types {
         uuid id "PK"
         text name
@@ -205,6 +212,15 @@ erDiagram
         text cron
         bool disabled
     }
+    jobs {
+      uuid id "PK"
+      uuid team_id "FK"
+      text operation
+      text status
+      jsonb results
+      time created_at
+      time updated_at
+    }
     teams ||--o{ user_team : ""
     teams ||--o{ policies : ""
     teams ||--o{ programs : ""
@@ -212,8 +228,10 @@ erDiagram
     teams ||--o{ recipients : ""
     teams ||--o{ assets : ""
     teams ||--o{ global_programs_metadata : ""
+    teams ||--o{ jobs : ""
     users ||--o{ user_team : ""
     assets ||--o{ asset_group : ""
+    assets ||--o{ asset_annotations : ""
     assets ||--|| asset_types : ""
     policies ||--o{ checktype_settings : ""
     policies ||--o{ programs_groups_policies : ""
