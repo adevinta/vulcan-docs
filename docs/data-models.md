@@ -125,6 +125,16 @@ erDiagram
         time last_login
         bool observer
     }
+    finding_overwrites {
+      uuid id "PK"
+      uuid user_id "FK"
+      uuid finding_id
+      text status
+      text status_previous
+      text notes
+      text tag
+      time created_at
+    }
     recipients {
         uuid team_id "PK, FK"
         text email "PK"
@@ -217,7 +227,7 @@ erDiagram
       uuid team_id "FK"
       text operation
       text status
-      jsonb results
+      jsonb result
       time created_at
       time updated_at
     }
@@ -229,6 +239,7 @@ erDiagram
     teams ||--o{ assets : ""
     teams ||--o{ global_programs_metadata : ""
     teams ||--o{ jobs : ""
+    users ||--o{ finding_overwrites : ""
     users ||--o{ user_team : ""
     assets ||--o{ asset_group : ""
     assets ||--o{ asset_annotations : ""
