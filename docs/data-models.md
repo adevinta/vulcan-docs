@@ -71,15 +71,10 @@ erDiagram
       text id "PK"
       text identifier
     }
-    target_tags {
-      text target_id "PK, FK"
-      text tag "PK"
-    }
     target_teams {
       text target_id "PK, FK"
       text team_id "PK"
     }
-    targets ||--o{ target_tags : ""
     targets ||--o{ target_teams : ""
     targets ||--o{ findings : ""
     targets ||--o{ sources : ""
@@ -129,10 +124,10 @@ erDiagram
       uuid id "PK"
       uuid user_id "FK"
       uuid finding_id
+      uuid team_id
       text status
       text status_previous
       text notes
-      text tag
       time created_at
     }
     recipients {
