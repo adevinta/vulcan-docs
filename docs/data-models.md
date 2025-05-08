@@ -80,6 +80,7 @@ erDiagram
     targets ||--o{ target_teams : ""
     targets ||--o{ findings : ""
     targets ||--o{ sources : ""
+    sources ||--o{ source_events : ""
     sources ||--o{ source_issues : ""
     sources ||--o{ last_sources : ""
     issues ||--o{ source_issues : ""
